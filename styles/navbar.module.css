@@ -1,0 +1,31 @@
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    padding: 2px 10px;
+    align-items: flex-end;
+    border-bottom: 1px solid #ddd;
+}
+.logoSection{
+    display: flex;
+    margin-right: auto;
+}
+
+
+.navRest{
+    display: flex;
+}
+.navRest a{
+    margin: 0 12.5px;
+}
+
+.btn{
+    background: rgb(46, 89, 182);
+    color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 1rem;
+}
+.btn:hover{
+    cursor: pointer;
+}
