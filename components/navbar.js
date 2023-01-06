@@ -1,8 +1,49 @@
 import Image from 'next/image';
 import styles from '../styles/navbar.module.css';
 import Link from 'next/link';
+import { ethers } from 'ethers';
+import {useState} from "react";
+
 
 const Navbar = () => {
+    const [currentAccount, setCurrentAccount] = useState();
+    
+    const connectWallet = async () => {
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+            try {
+              const result = await window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [{
+                  chainId: "0x13881",
+                  rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+                  chainName: "Mumbai Testnet",
+                  nativeCurrency: {
+                    name: "MATIC",
+                    symbol: "MATIC",
+                    decimals: 18
+                  },
+                  blockExplorerUrls: ["https://polygonscan.com/"]
+                }]
+              });
+            } catch (error){
+              console.log(error)
+            }
+
+       
+        // Prompt user for account connections
+        const accounts = await provider.send("eth_requestAccounts", []);
+        setCurrentAccount(accounts[0]);
+        console.log(currentAccount);
+      }
+
+      const shortenAddress = (currentAccount) => `${currentAccount.slice(0, 3)}...${currentAccount.slice(currentAccount.length - 4)}`
+      
+      const disconnectWallet = async () => {
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+        const accounts = await provider.send("eth_requestAccounts", []);
+        setCurrentAccount(!accounts[0]);
+      }
+
     return (
         <div className={styles.navbar}>
             <div className={styles.logoSection}>
@@ -13,7 +54,9 @@ const Navbar = () => {
                 <Link href='/'>Home</Link>
                 <Link href='/campaigns'>Campaigns</Link>
                 <Link href='/listing'>List a campaign</Link>
-                <button className={styles.btn}>Connect Wallet</button>
+                {!currentAccount ?  <button onClick={connectWallet} className={styles.btn}>Connect Wallet</button> :
+            <button onClick={disconnectWallet} className={styles.btn}>Connected: {shortenAddress(currentAccount)}</button>}
+
             </div>
         </div>
     );
