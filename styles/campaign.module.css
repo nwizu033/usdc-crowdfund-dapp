@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.card{
+    width: 25%;
+    border: 2px solid red;
+}
+.yet_to_start{
+    background: yellow;
+    color: #333;
+}
+.ongoing{
+    background: green;
+    color: #f2f2f2;
+}
+.ended{
+    background: red;
+    color: #f2f2f2;
+}
