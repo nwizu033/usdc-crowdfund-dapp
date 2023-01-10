@@ -1,20 +1,84 @@
+.top{
+    margin: 2rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.top button{
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    background: none;
+    border: 2px solid rgb(46, 89, 182);
+}
+
+.top button:hover{
+    cursor: pointer;
+    background-color: rgb(46, 89, 182);
+    color: #f2f2f2;
+    
+}
 .container{
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
 }
 .card{
     width: 25%;
-    border: 2px solid red;
+    border: 2px solid rgb(46, 89, 182);
+    position: relative;
+    border-radius: 12px;
+    margin: 0 3.2%;
+    margin-bottom: 2rem;
+    padding: 1rem 0.5rem;
+    font-weight: 600;
 }
 .yet_to_start{
     background: yellow;
     color: #333;
+    font-weight: 800;
+    text-align: center;
 }
 .ongoing{
     background: green;
     color: #f2f2f2;
+    font-weight: 800;
+    text-align: center;
 }
 .ended{
     background: red;
     color: #f2f2f2;
+    font-weight: 800;
+    text-align: center;
+}
+.modal{
+    z-index: 1000;
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    background: rgba(133, 43, 43,0.8);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.modal input{
+    width: 80%;
+    margin: 0.8rem 0;
+    padding: 1rem 2rem;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.modal p{
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+.modal button{
+    margin: 2rem 0;
 }

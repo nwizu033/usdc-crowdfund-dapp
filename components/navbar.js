@@ -9,27 +9,7 @@ const Navbar = () => {
     const [currentAccount, setCurrentAccount] = useState();
     
     const connectWallet = async () => {
-        const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-            try {
-              const result = await window.ethereum.request({
-                method: "wallet_addEthereumChain",
-                params: [{
-                  chainId: "0x13881",
-                  rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
-                  chainName: "Mumbai Testnet",
-                  nativeCurrency: {
-                    name: "MATIC",
-                    symbol: "MATIC",
-                    decimals: 18
-                  },
-                  blockExplorerUrls: ["https://polygonscan.com/"]
-                }]
-              });
-            } catch (error){
-              console.log(error)
-            }
-
-       
+        const provider = new ethers.providers.Web3Provider(window.ethereum, "any"); 
         // Prompt user for account connections
         const accounts = await provider.send("eth_requestAccounts", []);
         setCurrentAccount(accounts[0]);

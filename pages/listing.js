@@ -6,7 +6,7 @@ import { useState } from 'react';
 // 0x138d450D2701E50e6Ef8DE223AF94Bb3b1c8D523 crowdfund
 // matic crowdfund 0x40277C4eCB2804b2C1Ad860EC0430a4b50932aF5
 const listing = () => {
-    const contractAddress = '0x40277C4eCB2804b2C1Ad860EC0430a4b50932aF5';
+    const contractAddress = '0x3cebD7D44b0CE040CFd222E48f5e2E2edF88366E';
     const [title, setTitle] = useState();
     const [detail, setDetail] = useState();
     const [target, setTarget] = useState();
@@ -20,7 +20,7 @@ const listing = () => {
         const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
         const listCampaign = await contract.listCampaign(title,detail,target,start,end);
         await listCampaign.wait();
-        console.log(listCampaign.hash);
+        alert('Campaign listed successfully');
     }
     return (
         <div className={styles.list_container}>
