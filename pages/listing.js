@@ -19,6 +19,7 @@ const listing = () => {
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
         const listCampaign = await contract.listCampaign(title,detail,target,start,end);
+        alert('Listing campaign, please wait');
         await listCampaign.wait();
         alert('Campaign listed successfully');
     }
