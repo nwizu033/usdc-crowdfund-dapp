@@ -18,50 +18,86 @@ const campaigns = () => {
 
   // See all the listed campaigns
   const see = async () => {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = await provider.getSigner();
-  const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
-  const seeCampaigns = await contract.seeCampaigns();
-  setResult(seeCampaigns);
+    try{ 
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = await provider.getSigner();
+        const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
+        const seeCampaigns = await contract.seeCampaigns();
+        setResult(seeCampaigns);
+      }
+
+    } catch(error) {
+      alert("Please connect wallet to see campaigns");
+    }
+ 
   }
 
 
   const pledge = async () => {
-    // first approve before pledging
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = await provider.getSigner(); 
-  const usdcContract = new ethers.Contract(usdcContractAddress,usdcAbi,signer);
-  const approval = await usdcContract.approve(contractAddress, (amount * 1000000));
-  await approval.wait();
-  alert('approved');
 
-  // Implement the pledge function
-  const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
-  const pledge = await contract.pledge(id,amount);
-  await pledge.wait();
-  alert(pledge.hash);
+    try{
+
+      const {ethereum} = window;
+
+          // first approve before pledging
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = await provider.getSigner(); 
+      const usdcContract = new ethers.Contract(usdcContractAddress,usdcAbi,signer);
+      const approval = await usdcContract.approve(contractAddress, (amount * 1000000));
+      alert("Approving, please wait.")
+      await approval.wait();
+      alert('approved! Wait to pledge immediately');
+    
+      // Implement the pledge function
+      const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
+      const pledge = await contract.pledge(id,amount);
+      await pledge.wait();
+      alert(pledge.hash);
+
+    } catch(error){
+      console.log(error)
+      alert(error.message);
+    }
+
   }
 
  
   const withdraw = async () => {
-    // Implement the withdraw function
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = await provider.getSigner(); 
-  const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
-  const withdrawal = await contract.withdraw(id);
-  await withdrawal.wait();
-  alert(withdrawal.hash);
+
+    try{
+
+      const { ethereum } = window;
+
+        // Implement the withdraw function
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = await provider.getSigner(); 
+        const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
+        const withdrawal = await contract.withdraw(id);
+        alert('Mining in progress, please wait');
+        await withdrawal.wait();
+        alert('Done! Solve your problem');
+
+
+    } catch(err) {
+      alert(err.message);
+    }
+
+
   }
 
+  // function for date display
   const date = (timeStamp) => {
-    let dateFormat = new Date(timeStamp);
-    return (dateFormat.getDate()+
-    '/' + (dateFormat.getMonth()+1)+
-    '/' + dateFormat.getFullYear()+
-    ' ' + dateFormat.getHours()+
-    ':' + dateFormat.getMinutes()+
-    ':' + dateFormat.getSeconds()
-    );
+      let dateFormat = new Date(timeStamp);
+      return (dateFormat.getDate()+
+      '/' + (dateFormat.getMonth()+1)+
+      '/' + dateFormat.getFullYear()+
+      ' ' + dateFormat.getHours()+
+      ':' + dateFormat.getMinutes()+
+      ':' + dateFormat.getSeconds()
+      );
 
   }
 

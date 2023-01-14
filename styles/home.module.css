@@ -21,20 +21,17 @@
 .home_right{
     display: flex;
     flex: 1;
-    /* background: blue; */
     justify-content: center;
     align-items: center;
 }
 .row_1{
     margin-top: 2rem;
-    /* background: yellow; */
     display: flex;
     flex-direction: column;
 }
 
 .row_2{
     margin-top: -2rem;
-    /* background: green; */
     display: flex;
     flex-direction: column;
 }
@@ -51,4 +48,30 @@
     cursor: pointer;
     background-color: rgb(46, 89, 182);
     color: #f2f2f2;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .home{
+       flex-direction: column;
+       padding: 1rem 4rem;
+    }
+
+    .home_left{
+        width: 100%;
+        padding-top: 1rem;
+    }
+    
+    .home_right{
+        width: 100%;
+        padding-top: 5rem;
+        margin-bottom: 5rem;
+    }    
+
+    .btn{
+        margin-top: 2rem;
+
+    }
+
 }

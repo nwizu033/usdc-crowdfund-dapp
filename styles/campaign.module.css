@@ -138,3 +138,12 @@
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
 }
+
+@media screen and (max-width: 500px) {
+    .card{
+        width: 80%;
+        margin: 0 10%;
+    
+    }
+    
+}
