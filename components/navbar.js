@@ -7,7 +7,7 @@ import {useEffect, useState} from "react";
 
 const Navbar = () => {
     const [currentAccount, setCurrentAccount] = useState();
-    
+
     const isWalletConnected = async () => {
         try{
             const { ethereum } = window;
@@ -53,6 +53,7 @@ const Navbar = () => {
       const shortenAddress = (currentAccount) => `${currentAccount.slice(0, 3)}...${currentAccount.slice(currentAccount.length - 4)}`
       
 
+
       useEffect(()=> {
         isWalletConnected();
       }, []);
@@ -64,9 +65,11 @@ const Navbar = () => {
                 <h1>USDC CrowdFund</h1>
             </div>
             <div className={styles.navRest}>
+         
                 <Link href='/'>Home</Link>
                 <Link href='/campaigns'>Campaigns</Link>
                 <Link href='/listing'>List a campaign</Link>
+            
                 {!currentAccount ?  <button onClick={connectWallet} className={styles.btn}>Connect Wallet</button> :
             <button className={styles.btn}>Connected: {shortenAddress(currentAccount)}</button>}
 
