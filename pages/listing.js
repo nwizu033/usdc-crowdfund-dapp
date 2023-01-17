@@ -6,7 +6,7 @@ import { useState } from 'react';
 // 0x138d450D2701E50e6Ef8DE223AF94Bb3b1c8D523 crowdfund
 // matic crowdfund 0x40277C4eCB2804b2C1Ad860EC0430a4b50932aF5
 
-const listing = () => {
+const Listing = () => {
     
     const contractAddress = '0x66d0071274821E0FC84a120c3c8c01ef29372385';
     const [title, setTitle] = useState();
@@ -55,4 +55,4 @@ const listing = () => {
     );
 }
  
-export default listing;
+export default Listing;

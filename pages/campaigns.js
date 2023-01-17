@@ -7,7 +7,7 @@ import { useState } from "react";
 
   
 
-const campaigns = () => {
+const Campaigns = () => {
   const [result, setResult] = useState([]);
   const [showModal, setShowModdal] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);
@@ -165,4 +165,4 @@ const campaigns = () => {
   );
 };
 
-export default campaigns;
+export default Campaigns;
