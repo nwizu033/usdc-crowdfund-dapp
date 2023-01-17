@@ -113,7 +113,7 @@ const Campaigns = () => {
         <div className={styles.container}>
             {
             result.map((res) => (
-              <div className={styles.card}>
+              <div className={styles.card} key={res.CampaignNo}>
                 <h2>{(res.Title).toString()}</h2>
                 <h3>Campaign ID: {(res.CampaignNo).toString()}</h3>
                 <p> Details: {(res.Purpose).toString()}</p>
