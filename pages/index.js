@@ -13,7 +13,7 @@ function Home() {
             those problems affecting your life, family and the society <br/>
             around you. Our numerous users are eager to help.
           </p>
-          <Link href='/listing'><button className={styles.btn}>List a campaign</button></Link>
+          <Link href='/Listing'><button className={styles.btn}>List a campaign</button></Link>
         </div>
         <div className={styles.home_right}>
             <div className={styles.row_1}>
