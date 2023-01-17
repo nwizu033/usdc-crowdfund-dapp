@@ -78,8 +78,8 @@ const Navbar = () => {
             </div>
             <div className={active}>
                 <Link href='/'>Home</Link>
-                <Link href='/Campaigns'>Campaigns</Link>
-                <Link href='/Listing'>List a campaign</Link>
+                <Link href='/campaigns'>Campaigns</Link>
+                <Link href='/listing'>List a campaign</Link>
             </div>
               <div className={styles.btn_container}>
                   {!currentAccount ?  <button onClick={connectWallet} className={styles.btn}>Connect Wallet</button> :
