@@ -7,6 +7,18 @@ import {useEffect, useState} from "react";
 
 const Navbar = () => {
     const [currentAccount, setCurrentAccount] = useState();
+    const [active, setActive] = useState('menu');
+    const [toggleIcon, setToggleIcon] = useState('hamburger');
+  
+    const toggle = () => {
+      active === 'menu' ? setActive('menu active') 
+      : setActive('menu');
+  
+      toggleIcon === 'hamburger' ? setToggleIcon('hamburger toggle')
+      : setToggleIcon('hamburger');
+    }
+   
+
 
     const isWalletConnected = async () => {
         try{
@@ -64,16 +76,23 @@ const Navbar = () => {
                 <Image src="https://logotyp.us/files/usd-coin.svg" width={128} height ={70}/>
                 <h1>USDC CrowdFund</h1>
             </div>
-            <div className={styles.navRest}>
-         
+            <div className={active}>
                 <Link href='/'>Home</Link>
                 <Link href='/campaigns'>Campaigns</Link>
                 <Link href='/listing'>List a campaign</Link>
-            
-                {!currentAccount ?  <button onClick={connectWallet} className={styles.btn}>Connect Wallet</button> :
-            <button className={styles.btn}>Connected: {shortenAddress(currentAccount)}</button>}
-
             </div>
+              <div className={styles.btn_container}>
+                  {!currentAccount ?  <button onClick={connectWallet} className={styles.btn}>Connect Wallet</button> :
+                  <button className={styles.btn}>Conn: {shortenAddress(currentAccount)}</button>}
+              </div>
+
+              <div className={toggleIcon} onClick={toggle} >
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            
+
         </div>
     );
 }

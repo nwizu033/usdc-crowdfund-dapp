@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const listing = () => {
     
-    const contractAddress = '0x3cebD7D44b0CE040CFd222E48f5e2E2edF88366E';
+    const contractAddress = '0x66d0071274821E0FC84a120c3c8c01ef29372385';
     const [title, setTitle] = useState();
     const [detail, setDetail] = useState();
     const [target, setTarget] = useState();

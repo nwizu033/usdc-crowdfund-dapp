@@ -33,7 +33,17 @@
     border: none;
     background: rgb(46, 89, 182);
     color: #f2f2f2;
-}
-.btn:hover{
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+
+.form{
+    width: 100%; 
+  }
+
+  .form input{
+    font-size: 1.05rem;
+    }
 }

@@ -21,7 +21,7 @@
 .home_right{
     display: flex;
     flex: 1;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
 }
 .row_1{
@@ -37,6 +37,7 @@
 }
 
 .btn{
+    margin-top: 1.5rem;
     padding: 1rem 2rem;
     border-radius: 30px;
     font-size: 20px;
@@ -51,7 +52,7 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
 
     .home{
        flex-direction: column;
@@ -59,8 +60,22 @@
     }
 
     .home_left{
+        display: flex;
+        flex-direction: column;
         width: 100%;
         padding-top: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home_left p{
+        margin-top: 1rem;
+    }
+
+    .home_left h2{
+        letter-spacing: 2px;
+        text-align: start;
+        
     }
     
     .home_right{

@@ -13,7 +13,7 @@ const campaigns = () => {
   const [showWithdraw, setShowWithdraw] = useState(false);
   const [id, setId] = useState();
   const [amount, setAmount] = useState();
-  const contractAddress = '0x3cebD7D44b0CE040CFd222E48f5e2E2edF88366E';
+  const contractAddress = '0x66d0071274821E0FC84a120c3c8c01ef29372385';
   const  usdcContractAddress = '0x07865c6e87b9f70255377e024ace6630c1eaa37f';
 
   // See all the listed campaigns
@@ -55,7 +55,7 @@ const campaigns = () => {
       const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
       const pledge = await contract.pledge(id,amount);
       await pledge.wait();
-      alert(pledge.hash);
+      alert(` Done: ${pledge.hash}`);
 
     } catch(error){
       console.log(error)
@@ -117,7 +117,7 @@ const campaigns = () => {
                 <h2>{(res.Title).toString()}</h2>
                 <h3>Campaign ID: {(res.CampaignNo).toString()}</h3>
                 <p> Details: {(res.Purpose).toString()}</p>
-                <p>Target: {((res.Target)/1000000).toString()} USDC</p>
+                <p className={styles.blue}>Target: {((res.Target)/1000000).toString()} USDC</p>
                 <p> Raised so far: {((res.Raised)/1000000).toString()} USDC</p>
                 <p> Start Time: {(date(res.StartTime * 1000))}</p>
                 <p> End Time: {(date(res.EndTime * 1000))}</p>
