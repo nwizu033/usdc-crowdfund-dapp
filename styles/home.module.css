@@ -1,6 +1,6 @@
 .home{
     display: flex;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
 }
 
 .home img{
@@ -17,6 +17,20 @@
     width: 65%;
     padding-top: 5rem;
 }
+
+.home_left p{
+    margin-top: 1.5rem;
+    width: 70%;
+}
+
+.home_left h2{
+    letter-spacing: 1px;
+    text-align: start;
+    width: 80%;
+   
+    
+}
+
 
 .home_right{
     display: flex;
@@ -52,6 +66,11 @@
 }
 
 
+
+
+
+
+
 @media screen and (max-width: 600px) {
 
     .home{
@@ -64,17 +83,20 @@
         flex-direction: column;
         width: 100%;
         padding-top: 1rem;
-        justify-content: center;
-        align-items: center;
+     
     }
 
     .home_left p{
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        width: 85%;
     }
 
     .home_left h2{
         letter-spacing: 2px;
         text-align: start;
+        width: 100%;
+        font-size: 1.8rem;
+       
         
     }
     

@@ -8,11 +8,11 @@ function Home() {
   return (
     <div className={styles.home}>
         <div className={styles.home_left}>
-          <h2 className={styles.heading}>Solve that problem by raising a campaign <br/>
+          <h2 className={styles.heading}>Solve that problem by raising a campaign
               on this awesome platform
           </h2>
-          <p>We provide you the opportunity to raise a campaign to solve<br/>
-            those problems affecting your life, family and the society <br/>
+          <p>We provide you the opportunity to raise a campaign to solve
+            those problems affecting your life, family and the society 
             around you. Our numerous users are eager to help.
           </p>
           <Link href='/listing'><button className={styles.btn}>List a campaign</button></Link>
