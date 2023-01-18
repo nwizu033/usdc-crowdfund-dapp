@@ -23,7 +23,7 @@ const Campaigns = () => {
       const { ethereum } = window;
       const accounts = await ethereum.request({ method: "eth_accounts"});
 
-      if (!ethereum && accounts.length !== 0) {
+      if ((!ethereum) || accounts.length !== 0) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
