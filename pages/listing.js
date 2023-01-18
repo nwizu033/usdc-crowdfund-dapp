@@ -33,7 +33,7 @@ const Listing = () => {
         } catch(err) {
 
             console.error(err);
-            alert( err.message + "Make sure your wallet is connected and fill every detail")
+            alert( "Make sure your wallet is connected and fill every detail")
         
         }
     }
