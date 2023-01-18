@@ -1,6 +1,7 @@
 .list_container{
     display: flex;
     justify-content: center;
+    height: 98vh;
 }
 
 .list_h2{
