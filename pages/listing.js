@@ -28,12 +28,14 @@ const Listing = () => {
             alert('Listing campaign, please wait');
             await listCampaign.wait();
             alert('Campaign listed successfully');
+            } else{
+                alert( "Make sure your wallet is connected and fill every detail")
             }
         
         } catch(err) {
 
             console.error(err);
-            alert( "Make sure your wallet is connected and fill every detail")
+            
         
         }
     }
