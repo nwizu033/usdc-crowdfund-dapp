@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/home.module.css';
-
+import {useEffect, useState} from "react";
 function Home() {
+  const [currentAccount, setCurrentAccount] = useState();
+  
   return (
     <div className={styles.home}>
         <div className={styles.home_left}>
@@ -13,7 +15,7 @@ function Home() {
             those problems affecting your life, family and the society <br/>
             around you. Our numerous users are eager to help.
           </p>
-          <Link href='/Listing'><button className={styles.btn}>List a campaign</button></Link>
+          <Link href='/listing'><button className={styles.btn}>List a campaign</button></Link>
         </div>
         <div className={styles.home_right}>
             <div className={styles.row_1}>

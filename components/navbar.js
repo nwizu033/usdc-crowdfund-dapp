@@ -17,6 +17,19 @@ const Navbar = () => {
       toggleIcon === 'hamburger' ? setToggleIcon('hamburger toggle')
       : setToggleIcon('hamburger');
     }
+
+    const isWalletDetected = async () => {
+        try{
+            const {ethereum} = window;
+            
+            if(!ethereum) {
+                alert("Please install metamask for easy experience ");
+                
+            }
+        } catch {
+
+        }
+    }
    
 
 
@@ -68,6 +81,7 @@ const Navbar = () => {
 
       useEffect(()=> {
         isWalletConnected();
+        isWalletDetected();
       }, []);
 
     return (

@@ -19,21 +19,24 @@ const Campaigns = () => {
   // See all the listed campaigns
   const see = async () => {
     try{ 
-      const { ethereum } = window;
 
-      if (ethereum) {
+      const { ethereum } = window;
+      const accounts = await ethereum.request({ method: "eth_accounts"});
+
+      if (accounts.length !== 0) {
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = await provider.getSigner();
         const contract = new ethers.Contract(contractAddress, crowdfund_abi, signer);
         const seeCampaigns = await contract.seeCampaigns();
         setResult(seeCampaigns);
+      } else {
+        alert("Please connect wallet to see campaigns");
       }
-
-    } catch(error) {
-      alert("Please connect wallet to see campaigns");
-    }
+     } catch(error) {
+     console.log(error);
  
   }
+}
 
 
   const pledge = async () => {
@@ -163,6 +166,7 @@ const Campaigns = () => {
     </div>
     </div>
   );
-};
+}
+
 
 export default Campaigns;
