@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from '../styles/navbar.module.css';
 import Link from 'next/link';
-import { ethers } from 'ethers';
+// import { ethers } from 'ethers';
 import {useEffect, useState} from "react";
 
 
@@ -48,9 +48,8 @@ const Navbar = () => {
             } else{
                 alert("Please connect your wallet");
             }
-        } catch(error) {
+        } catch {
 
-            alert(error);
         }
     }
 
