@@ -6,6 +6,7 @@
 
 .list_h2{
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .form{
@@ -46,5 +47,9 @@
 
   .form input{
     font-size: 1.05rem;
+    }
+
+    .list_container{
+        height: 90%;
     }
 }
