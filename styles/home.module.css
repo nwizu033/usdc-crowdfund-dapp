@@ -1,6 +1,7 @@
 .home{
     display: flex;
     padding: 2rem 2rem;
+    height: 70vh;
 }
 
 .home img{
